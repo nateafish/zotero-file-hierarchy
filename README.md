@@ -16,9 +16,14 @@ My Library.json          ← 完整元数据（含 Collection 树 + PDF 相对�
 
 ## 安装
 
-1. 下载 `File Hierarchy.js`
-2. 放入 `Zotero/translators/` 目录
-3. 重启 Zotero
+- **一键安装（推荐）**：运行 [`导出脚本/`](导出脚本/) 里的安装脚本，脚本会直接从
+  GitHub 下载最新的 `File Hierarchy.js` 并安装到 Zotero 的 `translators/` 目录。
+- **手动安装**：
+  1. 下载 `File Hierarchy.js`
+  2. 放入 Zotero 数据目录下的 `translators/` 文件夹
+     （macOS 默认 `~/Zotero/translators/`；Windows 默认 `C:\Users\<用户名>\Zotero\translators\`；
+     在 Zotero「设置 → 高级 → 文件和文件夹 → 显示数据目录」可查看实际路径）
+  3. 重启 Zotero
 
 ## 导出
 
