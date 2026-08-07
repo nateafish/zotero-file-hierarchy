@@ -2,20 +2,22 @@ const fs = require('fs')
 
 const body = fs.readFileSync('File Hierarchy.js', 'utf-8')
 const header = JSON.stringify({
-  'translatorID': '86ffd88b-6f4e-4bec-a5be-839c1034beb2',
-  'label': 'File Hierarchy',
-  'description': 'Export files according to collection organisation',
-  'creator': 'Emiliano Heyns',
-  'target': 'txt',
-  'minVersion': '4.0.27',
+  'translatorID': '6ede6bef-0364-4a4b-86f4-dc83fb3a9bde',
+  'label': 'File Hierarchy Portable',
+  'description': 'Export files organised by collection together with portable JSON metadata that can be re-imported',
+  'creator': 'nathanxie (fork of Emiliano Heyns)',
+  'target': 'json',
+  'minVersion': '5.0',
   'maxVersion': '',
   'configOptions': {
     'getCollections': true
   },
   'displayOptions': {
-    'exportFileData': true
+    'exportFileData': true,
+    'exportNotes': true,
+    'exportTags': true
   },
-  'translatorType': 2,
+  'translatorType': 3,
   'browserSupport': 'gcsv',
   'priority': 100,
   'inRepository': false,

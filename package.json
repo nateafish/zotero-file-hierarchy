@@ -1,18 +1,18 @@
 {
-  "name": "zotero-file-hierarchy",
+  "name": "zotero-file-hierarchy-portable",
   "version": "1.0.0",
-  "description": "Export files according to collection organisation",
+  "description": "Export files organised by collection together with portable JSON metadata that can be re-imported",
   "main": "File Hierarchy.js",
   "scripts": {
     "start": "tsc --target ES2017 --moduleResolution node 'File Hierarchy.ts' && node header.js",
-    "test": "npm start && rm -rf 'My Library' && cp 'File Hierarchy.js'  ~/.BBTZ5TEST/zotero/translators/",
+    "test": "npm start && node mock-test.js",
     "push": "npm start && git add . && git commit -m update && git push"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/retorquere/zotero-file-hierarchy.git"
+    "url": "git+https://github.com/nateafish/zotero-file-hierarchy.git"
   },
-  "author": "Emiliano Heyns",
+  "author": "nathanxie (fork of Emiliano Heyns)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/retorquere/zotero-file-hierarchy/issues"
