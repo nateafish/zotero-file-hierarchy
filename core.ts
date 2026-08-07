@@ -234,6 +234,31 @@ const SKIP_FIELDS = new Set([
   'itemType',
 ])
 
+/**
+ * Zotero's export format emits single-field creators (organizations,
+ * institutions) as `{name, creatorType}`. Zotero's import framework discards
+ * any creator that has neither `firstName` nor `lastName`, which would
+ * silently drop name-only creators on import. Convert them to the
+ * `{fieldMode: 1, lastName}` form the framework keeps (and `cleanData` maps
+ * back to a single-field creator). Multi-field creators pass through.
+ */
+export function normalizeCreators(creators: unknown[]): unknown[] {
+  return creators.map(creator => {
+    const c = creator as {
+      name?: string
+      firstName?: string
+      lastName?: string
+      creatorType?: string
+    }
+    if (!c || c.name === undefined || c.lastName !== undefined) return creator
+    return {
+      creatorType: c.creatorType,
+      fieldMode: 1,
+      lastName: c.name,
+    }
+  })
+}
+
 /** Only accept manifests written by this translator. */
 export function validateManifest(data: unknown): data is Manifest {
   const d = data as any
@@ -272,7 +297,7 @@ export function manifestToImportModel(manifest: Manifest): ImportModel {
       key: s.key || `imported-${index}`,
       itemType: s.itemType,
       fields,
-      creators: s.creators || [],
+      creators: normalizeCreators(s.creators || []),
       tags: s.tags || [],
       notes: s.notes || [],
       attachments: (s.attachments || [])

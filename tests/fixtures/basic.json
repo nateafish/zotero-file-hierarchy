@@ -9,7 +9,10 @@
       "libraryID": 1,
       "itemType": "journalArticle",
       "title": "Example Paper",
-      "creators": [{ "creatorType": "author", "firstName": "X", "lastName": "Wang" }],
+      "creators": [
+        { "creatorType": "author", "firstName": "X", "lastName": "Wang" },
+        { "creatorType": "author", "name": "World Health Organization" }
+      ],
       "date": "2025",
       "DOI": "10.1234/example",
       "publicationTitle": "Journal of Testing",

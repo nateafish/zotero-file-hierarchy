@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
 import { exportLibrary, loadLibraryFixture, readFixture, readFixtureRaw } from './helpers'
-import { manifestToImportModel, validateManifest } from '../core'
+import { manifestToImportModel, normalizeCreators, validateManifest } from '../core'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const translatorBody = readFileSync(join(here, '..', 'File Hierarchy.js'), 'utf-8').replace(
@@ -156,7 +156,8 @@ describe('doImport', () => {
     const item = createdItems.find((c: any) => c.itemID === manifestItem.key)!
     expect(item.itemType).toBe(manifestItem.itemType)
     expect(item.title).toBe(manifestItem.title)
-    expect(item.creators).toEqual(manifestItem.creators)
+    // Name-only creators are normalized to {fieldMode: 1, lastName} on import.
+    expect(item.creators).toEqual(normalizeCreators((manifestItem.creators as unknown[]) || []))
     expect(item.tags).toEqual(manifestItem.tags)
     expect(item.notes).toEqual(manifestItem.notes)
     expect(item.attachments).toHaveLength(1)

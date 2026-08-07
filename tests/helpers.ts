@@ -10,6 +10,7 @@ import {
   buildCollectionRecords,
   buildManifest,
   manifestToImportModel,
+  normalizeCreators,
   normalizeRelativePath,
   type CollectionNode,
   type Manifest,
@@ -75,7 +76,7 @@ export function matchKey(item: any): string {
   if (doi) return `doi:${doi}`
   const year = String(item.date ?? item.fields?.date ?? '').match(/\d{4}/)?.[0] || ''
   const first = (item.creators || [])[0]
-  const firstCreator = first ? `${first.lastName || ''}${first.firstName || ''}` : ''
+  const firstCreator = first ? `${first.lastName || first.name || ''}${first.firstName || ''}` : ''
   return `ref:${item.title ?? item.fields?.title ?? ''}|${year}|${firstCreator}`
 }
 
@@ -125,8 +126,10 @@ export function expectRoundTrip(manifest: Manifest, fixture: LibraryFixture): vo
     // Bibliographic metadata (internal Zotero keys excluded).
     expect(imported.fields).toEqual(fieldsOf(source))
 
-    // Creators / tags / notes survive verbatim.
-    expect(imported.creators).toEqual(source.creators || [])
+    // Creators / tags / notes survive. Name-only creators are normalized to
+    // {fieldMode: 1, lastName} (the form Zotero's importer keeps), so compare
+    // against the same normalization of the source.
+    expect(imported.creators).toEqual(normalizeCreators(source.creators || []))
     expect(imported.tags).toEqual(source.tags || [])
     expect(imported.notes).toEqual(source.notes || [])
 

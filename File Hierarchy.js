@@ -120,6 +120,17 @@ var ZoteroFH = (() => {
     "dateModified",
     "itemType"
   ]);
+  function normalizeCreators(creators) {
+    return creators.map((creator) => {
+      const c = creator;
+      if (!c || c.name === void 0 || c.lastName !== void 0) return creator;
+      return {
+        creatorType: c.creatorType,
+        fieldMode: 1,
+        lastName: c.name
+      };
+    });
+  }
   function validateManifest(data) {
     const d = data;
     return Boolean(
@@ -147,7 +158,7 @@ var ZoteroFH = (() => {
         key: s.key || `imported-${index}`,
         itemType: s.itemType,
         fields,
-        creators: s.creators || [],
+        creators: normalizeCreators(s.creators || []),
         tags: s.tags || [],
         notes: s.notes || [],
         attachments: (s.attachments || []).filter((att) => att && Array.isArray(att.paths) && att.paths.length).map((att) => ({
@@ -290,7 +301,7 @@ var ZoteroFH = (() => {
 var testCases = [
   {
     "type": "import",
-    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"Papers\",\"parentKey\":null,\"path\":\"Papers\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Example Paper\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"X\",\"lastName\":\"Wang\"}],\"date\":\"2025\",\"DOI\":\"10.1234/example\",\"publicationTitle\":\"Journal of Testing\",\"url\":\"https://doi.org/10.1234/example\",\"extra\":\"Test extra\",\"dateAdded\":\"2025-01-01 00:00:00\",\"dateModified\":\"2025-01-02 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Wang - 2025 - Example Paper.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Wang - 2025 - Example Paper.pdf\"]}],\"tags\":[{\"tag\":\"core\"}],\"notes\":[\"a note about the paper\"],\"relations\":{}}]}",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"Papers\",\"parentKey\":null,\"path\":\"Papers\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Example Paper\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"X\",\"lastName\":\"Wang\"},{\"creatorType\":\"author\",\"name\":\"World Health Organization\"}],\"date\":\"2025\",\"DOI\":\"10.1234/example\",\"publicationTitle\":\"Journal of Testing\",\"url\":\"https://doi.org/10.1234/example\",\"extra\":\"Test extra\",\"dateAdded\":\"2025-01-01 00:00:00\",\"dateModified\":\"2025-01-02 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Wang - 2025 - Example Paper.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Wang - 2025 - Example Paper.pdf\"]}],\"tags\":[{\"tag\":\"core\"}],\"notes\":[\"a note about the paper\"],\"relations\":{}}]}",
     "items": [
       {
         "itemType": "journalArticle",
