@@ -1,0 +1,33 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "Reading", "children": [] },
+    { "key": "COLL2", "name": "Cited", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "In Two Places",
+      "creators": [{ "creatorType": "author", "firstName": "M", "lastName": "Both" }],
+      "date": "2024",
+      "DOI": "10.1111/twoplaces",
+      "dateAdded": "2024-01-01 00:00:00",
+      "dateModified": "2024-01-01 00:00:00",
+      "collections": ["COLL1", "COLL2"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Both - 2024 - In Two Places.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/DDD/two.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

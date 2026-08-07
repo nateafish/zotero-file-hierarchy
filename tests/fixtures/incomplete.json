@@ -1,0 +1,7 @@
+{
+  "format": "zotero-file-hierarchy-portable",
+  "version": 1,
+  "collections": [
+    { "key": "COLL1", "name": "Papers", "parentKey": null, "path": "Papers" }
+  ]
+}

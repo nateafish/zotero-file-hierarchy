@@ -1,0 +1,36 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "计算传播", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "计算传播学研究的回顾与展望",
+      "creators": [
+        { "creatorType": "author", "firstName": "小明", "lastName": "张" },
+        { "creatorType": "author", "firstName": "伟", "lastName": "李" }
+      ],
+      "date": "2024",
+      "DOI": "10.5678/chinese",
+      "publicationTitle": "新闻与传播研究",
+      "dateAdded": "2024-03-01 00:00:00",
+      "dateModified": "2024-03-02 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "全文 PDF",
+          "filename": "张小明 - 2024 - 计算传播学研究的回顾与展望.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/DEF/zhang.pdf"
+        }
+      ],
+      "tags": [{ "tag": "计算传播" }],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

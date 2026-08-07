@@ -1,0 +1,31 @@
+{
+  "format": "zotero-file-hierarchy-portable",
+  "version": 1,
+  "collections": [
+    { "key": "COLL1", "name": "计算传播", "parentKey": null, "path": "计算传播" }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemType": "journalArticle",
+      "title": "Windows Paths",
+      "creators": [{ "creatorType": "author", "firstName": "W", "lastName": "Win" }],
+      "date": "2023",
+      "DOI": "10.6666/winpaths",
+      "dateAdded": "2023-01-01 00:00:00",
+      "dateModified": "2023-01-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Win - 2023 - Windows Paths.pdf",
+          "mimeType": "application/pdf",
+          "paths": [".\\计算传播\\Win - 2023 - Windows Paths.pdf"]
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

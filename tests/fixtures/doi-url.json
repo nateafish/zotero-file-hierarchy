@@ -1,0 +1,42 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "Papers", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Metadata Rich",
+      "creators": [{ "creatorType": "author", "firstName": "R", "lastName": "Meta" }],
+      "date": "2023",
+      "DOI": "10.5555/metadata",
+      "url": "https://example.com/paper",
+      "accessDate": "2023-05-01",
+      "volume": "12",
+      "issue": "3",
+      "pages": "100-120",
+      "extra": "custom field",
+      "publicationTitle": "Metadata Journal",
+      "ISSN": "1234-5678",
+      "abstractNote": "An abstract of the paper.",
+      "language": "en",
+      "dateAdded": "2023-05-01 00:00:00",
+      "dateModified": "2023-05-02 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Meta - 2023 - Metadata Rich.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/GGG/meta.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

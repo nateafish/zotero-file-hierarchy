@@ -1,0 +1,96 @@
+{
+  "roots": [
+    {
+      "key": "COLL1",
+      "name": "A",
+      "type": "collection",
+      "children": [
+        {
+          "key": "COLL2",
+          "name": "B",
+          "type": "collection",
+          "children": [
+            { "key": "COLL3", "name": "C", "type": "collection", "children": [] }
+          ]
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Top Level",
+      "creators": [{ "creatorType": "author", "firstName": "T", "lastName": "Top" }],
+      "date": "2020",
+      "DOI": "10.1001/toplevel",
+      "dateAdded": "2020-01-01 00:00:00",
+      "dateModified": "2020-01-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Top - 2020 - Top Level.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/AAA/top.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    },
+    {
+      "key": "ITEM2",
+      "itemID": 2,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Middle Level",
+      "creators": [{ "creatorType": "author", "firstName": "M", "lastName": "Mid" }],
+      "date": "2021",
+      "DOI": "10.1002/middle",
+      "dateAdded": "2021-01-01 00:00:00",
+      "dateModified": "2021-01-01 00:00:00",
+      "collections": ["COLL2"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Mid - 2021 - Middle Level.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/BBB/mid.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    },
+    {
+      "key": "ITEM3",
+      "itemID": 3,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Leaf Level",
+      "creators": [{ "creatorType": "author", "firstName": "L", "lastName": "Leaf" }],
+      "date": "2022",
+      "DOI": "10.1003/leaf",
+      "dateAdded": "2022-01-01 00:00:00",
+      "dateModified": "2022-01-01 00:00:00",
+      "collections": ["COLL3"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "Leaf - 2022 - Leaf Level.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/CCC/leaf.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

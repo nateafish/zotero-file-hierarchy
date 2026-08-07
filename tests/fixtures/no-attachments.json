@@ -1,0 +1,50 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "Papers", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "No Files At All",
+      "creators": [{ "creatorType": "author", "firstName": "N", "lastName": "None" }],
+      "date": "2022",
+      "DOI": "10.2222/nofiles",
+      "dateAdded": "2022-01-01 00:00:00",
+      "dateModified": "2022-01-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    },
+    {
+      "key": "ITEM2",
+      "itemID": 2,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Link Only Attachment",
+      "creators": [{ "creatorType": "author", "firstName": "L", "lastName": "Link" }],
+      "date": "2022",
+      "DOI": "10.2222/linkonly",
+      "dateAdded": "2022-02-01 00:00:00",
+      "dateModified": "2022-02-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "External Link",
+          "filename": "linked.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "linkMode": "linked_url",
+          "defaultPath": ""
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

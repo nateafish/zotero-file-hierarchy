@@ -1,0 +1,32 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "Research/Data", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Weird: filename? test*",
+      "creators": [{ "creatorType": "author", "firstName": "A", "lastName": "B" }],
+      "date": "2023",
+      "DOI": "10.9999/weird",
+      "dateAdded": "2023-01-01 00:00:00",
+      "dateModified": "2023-01-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "A/B:C*D?E\"F<G>H|I$.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/XYZ/whatever.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

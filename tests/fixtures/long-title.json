@@ -1,0 +1,33 @@
+{
+  "roots": [
+    { "key": "COLL1", "name": "Long Titles", "children": [] }
+  ],
+  "items": [
+    {
+      "key": "ITEM1",
+      "itemID": 1,
+      "libraryID": 1,
+      "itemType": "journalArticle",
+      "title": "Long title test: Investigating the interplay between algorithmic transparency and user trust in recommendation systems under conditions of extreme metadata length, with additional consideration of longitudinal cohort effects, confounder adjustment strategies, and robustness to specification changes across multiple replication samples drawn from heterogeneous populations. An extended subtitle that exists purely to make this title extraordinarily long, pushing well past the point where shorter metadata handling code might truncate, wrap, or fail, so that we can verify the entire pipeline preserves very long bibliographic strings without loss or corruption through the export manifest and back into the import model.",
+      "creators": [{ "creatorType": "author", "firstName": "Lengthy", "lastName": "McTitleface" }],
+      "date": "2026",
+      "DOI": "10.7777/longtitle",
+      "publicationTitle": "Journal of Extremely Long Titles",
+      "dateAdded": "2026-01-01 00:00:00",
+      "dateModified": "2026-01-01 00:00:00",
+      "collections": ["COLL1"],
+      "attachments": [
+        {
+          "title": "Full Text PDF",
+          "filename": "McTitleface - 2026 - An extremely long title that goes on and on and on and on.pdf",
+          "mimeType": "application/pdf",
+          "contentType": "application/pdf",
+          "defaultPath": "/zotero/storage/ZZZ/long.pdf"
+        }
+      ],
+      "tags": [],
+      "notes": [],
+      "relations": {}
+    }
+  ]
+}

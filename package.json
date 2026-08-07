@@ -4,9 +4,14 @@
   "description": "Export files organised by collection together with portable JSON metadata that can be re-imported",
   "main": "File Hierarchy.js",
   "scripts": {
-    "start": "tsc --target ES2017 --moduleResolution node 'File Hierarchy.ts' && node header.js",
-    "test": "npm start && node mock-test.js",
-    "push": "npm start && git add . && git commit -m update && git push"
+    "build": "esbuild 'File Hierarchy.ts' --bundle --format=iife --global-name=ZoteroFH --platform=neutral --target=es2017 --outfile='File Hierarchy.js' && node header.js",
+    "start": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"core.ts\" \"File Hierarchy.ts\" \"tests/**/*.ts\" \"vitest.config.ts\"",
+    "test": "npm run build && vitest run",
+    "verify": "node scripts/verify-translator.mjs",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run verify",
+    "push": "npm run check && git add . && git commit -m update && git push"
   },
   "repository": {
     "type": "git",
@@ -15,10 +20,15 @@
   "author": "nathanxie (fork of Emiliano Heyns)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/retorquere/zotero-file-hierarchy/issues"
+    "url": "https://github.com/nateafish/zotero-file-hierarchy/issues"
   },
-  "homepage": "https://github.com/retorquere/zotero-file-hierarchy#readme",
-  "dependencies": {
-    "typescript": "^4.5.4"
+  "homepage": "https://github.com/nateafish/zotero-file-hierarchy#readme",
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.17.0",
+    "typescript": "^4.5.4",
+    "typescript-eslint": "^8.18.0",
+    "vitest": "^2.1.8"
   }
 }
