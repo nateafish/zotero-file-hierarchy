@@ -33,6 +33,24 @@ for (const fn of ['doExport', 'doImport', 'detectImport']) {
   if (!body.includes(fn)) throw new Error(`body missing entry point: ${fn}`)
 }
 
+// Embedded native test cases (the Zotero test framework reads these from the body)
+const tcMatch = body.match(
+  /\/\*\* BEGIN TEST CASES \*\*\/\s*var testCases = (\[[\s\S]*\])\s*\/\*\* END TEST CASES \*\*\//
+)
+if (!tcMatch) throw new Error('body missing embedded test cases block')
+const testCases = JSON.parse(tcMatch[1])
+if (!Array.isArray(testCases) || testCases.length === 0) {
+  throw new Error('embedded testCases must be a non-empty array')
+}
+for (const tc of testCases) {
+  if (tc.type !== 'import') throw new Error(`test case type must be "import", got ${tc.type}`)
+  if (typeof tc.input !== 'string' || !Array.isArray(tc.items) || !tc.items.length) {
+    throw new Error('each test case needs a string input and a non-empty items array')
+  }
+}
+
 new Function(body) // syntax check (header stripped); Zotero globals only at call time
 
-console.log(`OK: translator metadata + body valid (${body.length} bytes of code)`)
+console.log(
+  `OK: translator metadata + body valid (${body.length} bytes of code, ${testCases.length} embedded test cases)`
+)

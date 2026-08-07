@@ -10,5 +10,5 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["core.ts", "File Hierarchy.ts", "tests/**/*.ts", "vitest.config.ts"]
+  "include": ["core.ts", "File Hierarchy.ts", "tests/**/*.ts", "scripts/generate-test-cases.ts", "vitest.config.ts"]
 }

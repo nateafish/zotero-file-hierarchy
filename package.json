@@ -4,7 +4,9 @@
   "description": "Export files organised by collection together with portable JSON metadata that can be re-imported",
   "main": "File Hierarchy.js",
   "scripts": {
-    "build": "esbuild 'File Hierarchy.ts' --bundle --format=iife --global-name=ZoteroFH --platform=neutral --target=es2017 --outfile='File Hierarchy.js' && node header.js",
+    "build:main": "esbuild 'File Hierarchy.ts' --bundle --format=iife --global-name=ZoteroFH --platform=neutral --target=es2017 --outfile='File Hierarchy.js'",
+    "build:testcases": "esbuild scripts/generate-test-cases.ts --bundle --format=cjs --platform=node --target=node18 --outfile=scripts/.generate-test-cases.cjs && node scripts/.generate-test-cases.cjs",
+    "build": "npm run build:main && npm run build:testcases && node header.js",
     "start": "npm run build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"core.ts\" \"File Hierarchy.ts\" \"tests/**/*.ts\" \"vitest.config.ts\"",

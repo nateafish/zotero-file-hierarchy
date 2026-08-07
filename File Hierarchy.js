@@ -284,3 +284,91 @@ var ZoteroFH = (() => {
   globalThis.doImport = doImport;
   globalThis.detectImport = detectImport;
 })();
+
+
+/** BEGIN TEST CASES **/
+var testCases = [
+  {
+    "type": "import",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"Papers\",\"parentKey\":null,\"path\":\"Papers\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Example Paper\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"X\",\"lastName\":\"Wang\"}],\"date\":\"2025\",\"DOI\":\"10.1234/example\",\"publicationTitle\":\"Journal of Testing\",\"url\":\"https://doi.org/10.1234/example\",\"extra\":\"Test extra\",\"dateAdded\":\"2025-01-01 00:00:00\",\"dateModified\":\"2025-01-02 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Wang - 2025 - Example Paper.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Wang - 2025 - Example Paper.pdf\"]}],\"tags\":[{\"tag\":\"core\"}],\"notes\":[\"a note about the paper\"],\"relations\":{}}]}",
+    "items": [
+      {
+        "itemType": "journalArticle",
+        "title": "Example Paper",
+        "date": "2025",
+        "DOI": "10.1234/example",
+        "publicationTitle": "Journal of Testing",
+        "url": "https://doi.org/10.1234/example",
+        "extra": "Test extra"
+      }
+    ]
+  },
+  {
+    "type": "import",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"计算传播\",\"parentKey\":null,\"path\":\"计算传播\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"计算传播学研究的回顾与展望\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"小明\",\"lastName\":\"张\"},{\"creatorType\":\"author\",\"firstName\":\"伟\",\"lastName\":\"李\"}],\"date\":\"2024\",\"DOI\":\"10.5678/chinese\",\"publicationTitle\":\"新闻与传播研究\",\"dateAdded\":\"2024-03-01 00:00:00\",\"dateModified\":\"2024-03-02 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"全文 PDF\",\"filename\":\"张小明 - 2024 - 计算传播学研究的回顾与展望.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"计算传播/张小明 - 2024 - 计算传播学研究的回顾与展望.pdf\"]}],\"tags\":[{\"tag\":\"计算传播\"}],\"notes\":[],\"relations\":{}}]}",
+    "items": [
+      {
+        "itemType": "journalArticle",
+        "title": "计算传播学研究的回顾与展望",
+        "date": "2024",
+        "DOI": "10.5678/chinese",
+        "publicationTitle": "新闻与传播研究"
+      }
+    ]
+  },
+  {
+    "type": "import",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"A\",\"parentKey\":null,\"path\":\"A\"},{\"key\":\"COLL2\",\"name\":\"B\",\"parentKey\":\"COLL1\",\"path\":\"A/B\"},{\"key\":\"COLL3\",\"name\":\"C\",\"parentKey\":\"COLL2\",\"path\":\"A/B/C\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Top Level\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"T\",\"lastName\":\"Top\"}],\"date\":\"2020\",\"DOI\":\"10.1001/toplevel\",\"dateAdded\":\"2020-01-01 00:00:00\",\"dateModified\":\"2020-01-01 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Top - 2020 - Top Level.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"A/Top - 2020 - Top Level.pdf\"]}],\"tags\":[],\"notes\":[],\"relations\":{}},{\"key\":\"ITEM2\",\"itemID\":2,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Middle Level\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"M\",\"lastName\":\"Mid\"}],\"date\":\"2021\",\"DOI\":\"10.1002/middle\",\"dateAdded\":\"2021-01-01 00:00:00\",\"dateModified\":\"2021-01-01 00:00:00\",\"collections\":[\"COLL2\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Mid - 2021 - Middle Level.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"A/B/Mid - 2021 - Middle Level.pdf\"]}],\"tags\":[],\"notes\":[],\"relations\":{}},{\"key\":\"ITEM3\",\"itemID\":3,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Leaf Level\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"L\",\"lastName\":\"Leaf\"}],\"date\":\"2022\",\"DOI\":\"10.1003/leaf\",\"dateAdded\":\"2022-01-01 00:00:00\",\"dateModified\":\"2022-01-01 00:00:00\",\"collections\":[\"COLL3\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Leaf - 2022 - Leaf Level.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"A/B/C/Leaf - 2022 - Leaf Level.pdf\"]}],\"tags\":[],\"notes\":[],\"relations\":{}}]}",
+    "items": [
+      {
+        "itemType": "journalArticle",
+        "title": "Top Level",
+        "date": "2020",
+        "DOI": "10.1001/toplevel"
+      },
+      {
+        "itemType": "journalArticle",
+        "title": "Middle Level",
+        "date": "2021",
+        "DOI": "10.1002/middle"
+      },
+      {
+        "itemType": "journalArticle",
+        "title": "Leaf Level",
+        "date": "2022",
+        "DOI": "10.1003/leaf"
+      }
+    ]
+  },
+  {
+    "type": "import",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"Papers\",\"parentKey\":null,\"path\":\"Papers\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Example Paper\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"X\",\"lastName\":\"Wang\"}],\"date\":\"2025\",\"DOI\":\"10.1234/example\",\"dateAdded\":\"2025-01-01 00:00:00\",\"dateModified\":\"2025-01-01 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Wang - 2025 - Example Paper.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Wang - 2025 - Example Paper.pdf\"]}],\"tags\":[],\"notes\":[],\"relations\":{}},{\"key\":\"ITEM2\",\"itemID\":2,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Example Paper (Duplicate Filename)\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"X\",\"lastName\":\"Wang\"}],\"date\":\"2025\",\"DOI\":\"10.1234/example-copy\",\"dateAdded\":\"2025-02-01 00:00:00\",\"dateModified\":\"2025-02-01 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Wang - 2025 - Example Paper.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Wang - 2025 - Example Paper_1.pdf\"]}],\"tags\":[],\"notes\":[],\"relations\":{}}]}",
+    "items": [
+      {
+        "itemType": "journalArticle",
+        "title": "Example Paper",
+        "date": "2025",
+        "DOI": "10.1234/example"
+      },
+      {
+        "itemType": "journalArticle",
+        "title": "Example Paper (Duplicate Filename)",
+        "date": "2025",
+        "DOI": "10.1234/example-copy"
+      }
+    ]
+  },
+  {
+    "type": "import",
+    "input": "{\"format\":\"zotero-file-hierarchy-portable\",\"version\":1,\"collections\":[{\"key\":\"COLL1\",\"name\":\"Papers\",\"parentKey\":null,\"path\":\"Papers\"}],\"items\":[{\"key\":\"ITEM1\",\"itemID\":1,\"libraryID\":1,\"itemType\":\"journalArticle\",\"title\":\"Tagged and Noted\",\"creators\":[{\"creatorType\":\"author\",\"firstName\":\"T\",\"lastName\":\"Tagger\"}],\"date\":\"2024\",\"DOI\":\"10.4444/tagsnotes\",\"dateAdded\":\"2024-01-01 00:00:00\",\"dateModified\":\"2024-01-01 00:00:00\",\"collections\":[\"COLL1\"],\"attachments\":[{\"title\":\"Full Text PDF\",\"filename\":\"Tagger - 2024 - Tagged and Noted.pdf\",\"mimeType\":\"application/pdf\",\"paths\":[\"Papers/Tagger - 2024 - Tagged and Noted.pdf\"]}],\"tags\":[{\"tag\":\"important\"},{\"tag\":\"computed\",\"type\":1},{\"tag\":\"已读\"}],\"notes\":[\"first note about the item\",\"second note\"],\"relations\":{}}]}",
+    "items": [
+      {
+        "itemType": "journalArticle",
+        "title": "Tagged and Noted",
+        "date": "2024",
+        "DOI": "10.4444/tagsnotes"
+      }
+    ]
+  }
+]
+/** END TEST CASES **/

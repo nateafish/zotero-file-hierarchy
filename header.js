@@ -24,4 +24,16 @@ const header = JSON.stringify({
   'lastUpdated': fs.statSync('File Hierarchy.ts').mtime.toISOString().replace('T', ' ').replace(/\..*/, ''),
 }, null, 2)
 
-fs.writeFileSync('File Hierarchy.js', header + '\n\n' + body)
+// Native Zotero test cases, generated from tests/fixtures by
+// scripts/generate-test-cases.ts (see `npm run build:testcases`). The Zotero
+// test framework (Scaffold / test/tests) reads these from the translator body.
+let testCasesBlock = ''
+try {
+  const testCases = fs.readFileSync('tests/generated-test-cases.json', 'utf-8')
+  testCasesBlock = `\n\n/** BEGIN TEST CASES **/\nvar testCases = ${testCases}/** END TEST CASES **/\n`
+}
+catch (e) {
+  console.warn('tests/generated-test-cases.json missing; skipping embedded test cases')
+}
+
+fs.writeFileSync('File Hierarchy.js', header + '\n\n' + body + testCasesBlock)
